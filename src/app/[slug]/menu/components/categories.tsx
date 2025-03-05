@@ -6,6 +6,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
+import Products from "./products";
 
 interface RestaurantCategoriesProps {
   restaurant: Prisma.RestaurantGetPayload<{
@@ -57,21 +60,27 @@ const RestaurantCategories = ({ restaurant }: RestaurantCategoriesProps) => {
         </div>
       </div>
 
-      <div className="flex w-max space-x-4 p-4 pt-0">
-        {restaurant.menuCategories.map((category) => (
-          <Button
-            onClick={() => handleCategoryClick(category)}
-            key={category.id}
-            variant={getCategoryButtonVariant(category)}
-            size="sm"
-            className="rounded-full"
-          >
-            {category.name}
-          </Button>
-        ))}
-      </div>
+      <ScrollArea className="w-full">
+        <div className="flex w-max space-x-4 p-4 pt-0">
+          {restaurant.menuCategories.map((category) => (
+            <Button
+              onClick={() => handleCategoryClick(category)}
+              key={category.id}
+              variant={getCategoryButtonVariant(category)}
+              size="sm"
+              className="rounded-full"
+            >
+              {category.name}
+            </Button>
+          ))}
+        </div>
+
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
 
       <h3 className="px-5 pt-2 font-semibold">{selectedCategory.name}</h3>
+      
+      <Products products={selectedCategory.products} />
     </div>
   );
 };
