@@ -13,7 +13,8 @@
     "seed": "ts-node ./prisma/seed.ts"
   },
   "overrides": {
-    "postcss": "^8.5.10"
+    "postcss": "^8.5.10",
+    "deepmerge-ts": "^8.0.2"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
