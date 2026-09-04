@@ -11,7 +11,8 @@
   },
   "overrides": {
     "postcss": "^8.5.10",
-    "deepmerge-ts": "^8.0.2"
+    "deepmerge-ts": "^8.0.2",
+    "mysql2": "^3.24.3"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
