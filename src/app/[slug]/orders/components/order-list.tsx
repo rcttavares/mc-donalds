@@ -76,6 +76,7 @@ const OrderList = ({ orders }: OrderListProps) => {
                   alt={order.restaurant.name}
                   className="rounded-sm"
                   fill
+                  sizes="20px"
                 />
               </div>
               <p className="text-sm font-semibold">{order.restaurant.name}</p>

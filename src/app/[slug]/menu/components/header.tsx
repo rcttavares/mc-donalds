@@ -33,6 +33,7 @@ const RestaurantHeader = ({ restaurant }: RestaurantHeaderProps) => {
         src={restaurant.coverImageUrl}
         alt={restaurant.name}
         fill
+        sizes="100vw"
         className="object-cover"
       />
 

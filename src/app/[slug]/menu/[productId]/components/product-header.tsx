@@ -33,6 +33,7 @@ const ProductHeader = ({ product }: ProductHeaderProps) => {
         src={product.imageUrl}
         alt={product.name}
         fill
+        sizes="100vw"
         className="object-contain"
       />
 

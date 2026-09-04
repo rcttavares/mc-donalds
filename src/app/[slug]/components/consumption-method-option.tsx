@@ -27,6 +27,7 @@ const ConsumptionMethodOption = ({
           <Image
             src={imageUrl}
             fill
+            sizes="80px"
             alt={imageAlt}
             className="object-contain"
           />

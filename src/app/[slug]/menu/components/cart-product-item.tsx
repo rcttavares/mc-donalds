@@ -19,7 +19,12 @@ const CartProductItem = ({ product }: CartProductItemProps) => {
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-3">
         <div className="relative h-20 w-20 rounded-xl bg-gray-100">
-          <Image src={product.imageUrl} alt={product.name} fill />
+          <Image
+            src={product.imageUrl}
+            alt={product.name}
+            fill
+            sizes="80px"
+          />
         </div>
 
         <div className="space-y-1">
