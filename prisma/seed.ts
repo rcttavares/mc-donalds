@@ -1,8 +1,10 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-const { PrismaClient } = require("@prisma/client");
+import { PrismaPg } from "@prisma/adapter-pg";
 
-const prismaClient = new PrismaClient();
+import { PrismaClient } from "../src/generated/prisma/client";
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+const prismaClient = new PrismaClient({ adapter });
 
 const main = async () => {
   await prismaClient.$transaction(async (tx: any) => {

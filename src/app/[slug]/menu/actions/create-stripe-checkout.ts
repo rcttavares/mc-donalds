@@ -1,9 +1,9 @@
 "use server";
 
-import { ConsumptionMethod } from "@prisma/client";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
+import { ConsumptionMethod } from "@/generated/prisma/client";
 import { db } from "@/lib/prisma";
 
 import { CartProduct } from "../contexts/cart";

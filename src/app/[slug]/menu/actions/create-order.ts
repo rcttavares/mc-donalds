@@ -1,8 +1,8 @@
 "use server";
 
-import { ConsumptionMethod } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
+import { ConsumptionMethod } from "@/generated/prisma/client";
 import { db } from "@/lib/prisma";
 
 import { removeCpfPunctuation } from "../helpers/cpf";
