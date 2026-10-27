@@ -312,7 +312,7 @@ const main = async () => {
         },
       ],
     });
-  });
+  }, { maxWait: 20000, timeout: 60000 });
 };
 
 main()
