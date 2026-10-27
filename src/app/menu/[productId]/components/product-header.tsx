@@ -2,7 +2,7 @@
 
 import { ChevronLeftIcon, ScrollTextIcon } from "lucide-react";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Product } from "@/generated/prisma/browser";
@@ -12,11 +12,10 @@ interface ProductHeaderProps {
 }
 
 const ProductHeader = ({ product }: ProductHeaderProps) => {
-  const { slug } = useParams<{ slug: string }>();
   const router = useRouter();
 
   const handleBackClick = () => router.back();
-  const handleOrdersClick = () => router.push(`/${slug}/orders`);
+  const handleOrdersClick = () => router.push("/orders");
 
   return (
     <div className="relative min-h-[300px] w-full">

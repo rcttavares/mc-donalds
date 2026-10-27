@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 
 import { ConsumptionMethod } from "@/generated/prisma/client";
 import { db } from "@/lib/prisma";
+import { RESTAURANT_SLUG } from "@/lib/restaurant";
 
 import { removeCpfPunctuation } from "../helpers/cpf";
 
@@ -15,13 +16,12 @@ interface CreateOrderInput {
     quantity: number;
   }>;
   consumptionMethod: ConsumptionMethod;
-  slug: string;
 }
 
 export const createOrder = async (input: CreateOrderInput) => {
   const restaurant = await db.restaurant.findUnique({
     where: {
-      slug: input.slug,
+      slug: RESTAURANT_SLUG,
     },
   });
 
@@ -62,9 +62,9 @@ export const createOrder = async (input: CreateOrderInput) => {
     },
   });
 
-  revalidatePath(`/${input.slug}/orders`);
+  revalidatePath("/orders");
   // redirect(
-  //   `/${input.slug}/orders?cpf=${removeCpfPunctuation(input.customerCpf)}`,
+  //   `/orders?cpf=${removeCpfPunctuation(input.customerCpf)}`,
   // );
   return order;
 };

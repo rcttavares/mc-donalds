@@ -12,7 +12,6 @@ import { removeCpfPunctuation } from "../helpers/cpf";
 interface CreateStripeCheckoutInput {
   products: CartProduct[];
   orderId: number;
-  slug: string;
   consumptionMethod: ConsumptionMethod;
   cpf: string;
 }
@@ -20,7 +19,6 @@ interface CreateStripeCheckoutInput {
 export const createStripeCheckout = async ({
   orderId,
   products,
-  slug,
   consumptionMethod,
   cpf,
 }: CreateStripeCheckoutInput) => {
@@ -49,8 +47,8 @@ export const createStripeCheckout = async ({
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     mode: "payment",
-    success_url: `${origin}/${slug}/orders?${searchParams.toString()}`,
-    cancel_url: `${origin}/${slug}/orders?${searchParams.toString()}`,
+    success_url: `${origin}/orders?${searchParams.toString()}`,
+    cancel_url: `${origin}/orders?${searchParams.toString()}`,
     metadata: {
       orderId,
     },

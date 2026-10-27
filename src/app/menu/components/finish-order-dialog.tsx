@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loadStripe } from "@stripe/stripe-js";
 import { Loader2Icon } from "lucide-react";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PatternFormat } from "react-number-format";
@@ -59,7 +59,6 @@ interface FinishOrderDialogProps {
 }
 
 const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
-  const { slug } = useParams<{ slug: string }>();
   const { products } = useContext(CartContext);
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
@@ -85,13 +84,11 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderDialogProps) => {
         customerCpf: data.cpf,
         customerName: data.name,
         products,
-        slug,
       });
 
       const { sessionId } = await createStripeCheckout({
         products,
         orderId: order.id,
-        slug,
         consumptionMethod,
         cpf: data.cpf,
       });

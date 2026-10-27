@@ -1,16 +1,17 @@
 import { notFound } from "next/navigation";
 
 import { db } from "@/lib/prisma";
+import { RESTAURANT_SLUG } from "@/lib/restaurant";
 
 import ProductDetails from "./components/product-details";
 import ProductHeader from "./components/product-header";
 
 interface ProductPageProps {
-  params: Promise<{ slug: string; productId: string }>;
+  params: Promise<{ productId: string }>;
 }
 
 const ProductPage = async ({ params }: ProductPageProps) => {
-  const { slug, productId } = await params;
+  const { productId } = await params;
   const product = await db.product.findUnique({
     where: { id: productId },
     include: {
@@ -28,7 +29,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
     return notFound();
   }
 
-  if (product.restaurant.slug.toUpperCase() !== slug.toUpperCase()) {
+  if (product.restaurant.slug !== RESTAURANT_SLUG) {
     return notFound();
   }
 
