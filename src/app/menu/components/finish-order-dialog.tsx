@@ -29,7 +29,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { ConsumptionMethod } from "@/generated/prisma/browser";
+import type { ConsumptionMethod } from "@/generated/prisma/browser";
 
 import { createOrder } from "../actions/create-order";
 import { createStripeCheckout } from "../actions/create-stripe-checkout";

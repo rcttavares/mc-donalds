@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Prisma } from "@/generated/prisma/browser";
+import type { Prisma } from "@/generated/prisma/browser";
 import { formatCurrency } from "@/helpers/format-currency";
 
 import CartSheet from "../../components/cart-sheet";

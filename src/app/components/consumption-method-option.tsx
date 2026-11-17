@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ConsumptionMethod } from "@/generated/prisma/client";
+import type { ConsumptionMethod } from "@/generated/prisma/client";
 
 interface ConsumptionMethodOptionProps {
   imageUrl: string;

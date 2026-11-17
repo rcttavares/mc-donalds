@@ -3,10 +3,10 @@
 import { headers } from "next/headers";
 import Stripe from "stripe";
 
-import { ConsumptionMethod } from "@/generated/prisma/client";
+import type { ConsumptionMethod } from "@/generated/prisma/client";
 import { db } from "@/lib/prisma";
 
-import { CartProduct } from "../contexts/cart";
+import type { CartProduct } from "../contexts/cart";
 import { removeCpfPunctuation } from "../helpers/cpf";
 
 interface CreateStripeCheckoutInput {

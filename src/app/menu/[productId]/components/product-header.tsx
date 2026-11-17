@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
-import { Product } from "@/generated/prisma/browser";
+import type { Product } from "@/generated/prisma/browser";
 
 interface ProductHeaderProps {
   product: Pick<Product, "name" | "imageUrl">;

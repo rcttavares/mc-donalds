@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
-import { Restaurant } from "@/generated/prisma/browser";
+import type { Restaurant } from "@/generated/prisma/browser";
 
 interface RestaurantHeaderProps {
   restaurant: Pick<Restaurant, "name" | "coverImageUrl">;

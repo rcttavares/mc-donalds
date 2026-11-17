@@ -1,8 +1,8 @@
 "use client";
 
-import { createContext, ReactNode, useState } from "react";
+import { createContext, type ReactNode, useState } from "react";
 
-import { Product } from "@/generated/prisma/browser";
+import type { Product } from "@/generated/prisma/browser";
 
 export interface CartProduct
   extends Pick<Product, "id" | "name" | "price" | "imageUrl"> {

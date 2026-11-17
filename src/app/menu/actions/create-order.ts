@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 
-import { ConsumptionMethod } from "@/generated/prisma/client";
+import type { ConsumptionMethod } from "@/generated/prisma/client";
 import { db } from "@/lib/prisma";
 import { RESTAURANT_SLUG } from "@/lib/restaurant";
 
